@@ -64,3 +64,154 @@ body {
     color:#858585;
     font-weight:bold;
 }
+
+
+
+
+:root {
+    --google-gray: #5f6368;
+    --google-blue: #1a73e8;
+    --google-border: #dadce0;
+    --bg-white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-white);
+    color: #202124;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header/Nav */
+header {
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--google-border);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 22px;
+    color: var(--google-gray);
+    font-weight: 500;
+}
+
+/* Hero Content */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+p {
+    font-size: 18px;
+    color: var(--google-gray);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* Neko Container */
+#neko-container {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#neko {
+    width: 120px; /* Professional sizing */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--google-blue);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.btn-primary:hover {
+    background-color: #185abc;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid var(--google-border);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--google-gray);
+    font-size: 14px;
+}
+
+.footer-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--google-gray);
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Updated Neko styling to fix dimensions */
+#neko-container {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This ensures the container doesn't squash the cat */
+    min-height: 35px; 
+}
+
+#neko {
+    /* Set a fixed width or height, but not both as 'auto' */
+    width: 35px; 
+    /* height: auto;  */
+    height: 35px; 
+    
+    /* Pixelated look for crispness if it's a small sprite */
+    image-rendering: pixelated; 
+    
+    /* Standard Google-style shadow for depth */
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+    
+    /* Prevents stretching */
+    object-fit: contain;
+    transition: transform 0.2s ease-out;
+}

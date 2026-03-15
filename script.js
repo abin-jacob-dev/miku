@@ -30,12 +30,24 @@ let stateEntryTime = 0;
 let lastMoveTime = Date.now();
 
 // --- Event Listener ---
+// document.addEventListener('mousemove', (e) => {
+//     targetX = e.clientX - 16;
+//     targetY = e.clientY - 16 + cursorOffset;
+//     lastMoveTime = Date.now(); // Update the last move time
+// });
 document.addEventListener('mousemove', (e) => {
-    targetX = e.clientX - 16;
-    targetY = e.clientY - 16 + cursorOffset;
-    lastMoveTime = Date.now(); // Update the last move time
-});
+    const offset = 10; // distance from cursor
 
+    const dx = e.clientX - x;
+    const dy = e.clientY - y;
+    const angle = Math.atan2(dy, dx);
+
+    // place cat slightly behind cursor direction
+    targetX = e.clientX - Math.cos(angle) * offset;
+    targetY = e.clientY - Math.sin(angle) * offset;
+
+    lastMoveTime = Date.now();
+});
 
 // --- Sound Logic ---
 function playSound(sound, volume = 1.0) {
@@ -160,18 +172,28 @@ function update() {
 
 // --- Initial Setup ---
 function init() {
+    const logo = document.querySelector('.logo');
+    const logoRect = logo.getBoundingClientRect();
+
+    // place cat to the right of the logo
+    x = logoRect.right + 10;
+    y = logoRect.top + (logoRect.height / 2) - 16;
+
+    targetX = x;
+    targetY = y;
+
     const enableAudio = () => {
         document.removeEventListener('mousemove', enableAudio);
         document.removeEventListener('click', enableAudio);
-        // Play a tiny silent sound to unlock the audio context
+
         const emptySound = new Audio("data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA");
         emptySound.play().catch(() => {});
     }
+
     document.addEventListener('mousemove', enableAudio);
     document.addEventListener('click', enableAudio);
-    
+
     stateEntryTime = Date.now();
     update();
 }
-
 init();
