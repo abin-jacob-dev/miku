@@ -27,11 +27,13 @@ const cursorOffset = window.innerHeight * 0.03;
 
 // --- Time-based State Management ---
 let stateEntryTime = 0;
+let lastMoveTime = Date.now();
 
 // --- Event Listener ---
 document.addEventListener('mousemove', (e) => {
     targetX = e.clientX - 16;
     targetY = e.clientY - 16 + cursorOffset;
+    lastMoveTime = Date.now(); // Update the last move time
 });
 
 
@@ -57,12 +59,21 @@ function update() {
     const dy = targetY - y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
+    // --- Global Sleep Check ---
+    if (now - lastMoveTime > 30000 && state !== 'sleep') {
+        playSound(sleepSound, 0.5);
+        enterState('sleep');
+    }
+
     // --- STATE MACHINE ---
     switch (state) {
         case 'sleep':
             if (distance > stoppingDistance) {
                 playSound(awakeSound, 0.5);
                 enterState('moving');
+            } else if (now - stateEntryTime > 20000) { // Wake up after 20s
+                playSound(awakeSound, 0.5);
+                enterState('awake');
             }
             break;
 
@@ -70,11 +81,6 @@ function update() {
             // If the mouse moves far enough, start chasing it.
             if (distance > stoppingDistance) {
                 enterState('moving');
-            }
-            // After a long rest, fall asleep.
-            else if (now - stateEntryTime > 30000) { // 30s to fall asleep
-                playSound(sleepSound, 0.5);
-                enterState('sleep');
             }
             // After a short rest, maybe do a random action.
             else if (now - stateEntryTime > 3000 + Math.random() * 4000) { // 3-7s

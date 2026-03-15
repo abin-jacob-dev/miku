@@ -24,3 +24,43 @@ body {
 .content {
     padding-top: 60px;
 }
+.contact-section{
+    margin-top:50px;
+    text-align:center;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    max-width:400px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    margin:10px 0;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.contact-form button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#8b8b8b;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.social-links{
+    margin-top:20px;
+}
+
+.social-links a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#858585;
+    font-weight:bold;
+}
