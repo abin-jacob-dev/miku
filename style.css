@@ -1,0 +1,26 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+#neko-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#neko {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+.content {
+    padding-top: 60px;
+}
