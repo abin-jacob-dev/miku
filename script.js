@@ -172,12 +172,15 @@ function update() {
 
 // --- Initial Setup ---
 function init() {
-    const logo = document.querySelector('.logo');
-    const logoRect = logo.getBoundingClientRect();
+    const nav = document.querySelector('nav');
+    const navRect = nav.getBoundingClientRect();
 
-    // place cat to the right of the logo
-    x = logoRect.right + 10;
-    y = logoRect.top + (logoRect.height / 2) - 16;
+    const catSize = 35; // same as CSS width
+    const padding = 10; // small spacing from edge
+
+    // position cat at rightmost side of navbar
+    x = navRect.right - catSize - padding;
+    y = navRect.top + (navRect.height / 2) - (catSize / 2);
 
     targetX = x;
     targetY = y;

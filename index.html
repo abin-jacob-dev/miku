@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miku on the Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="neko-container">
-        <img id="neko" src="assets/awake.png" alt="Miku">
-    </div>
-    <div class="content">
-        <h1>Welcome to Miku on the Web</h1>
-        <p>A delightful animated cat that follows your cursor.</p>
-    </div>
+    <header>
+        <nav>
+            <div class="logo">Miku</div>
+            <!-- <div class="nav-links">
+                <a href="https://www.linkedin.com/in/ajb-abin-jacob/" target="_blank" class="btn-secondary">Contact</a>
+            </div> -->
+        </nav>
+    </header>
+
+    <main>
+        <div id="neko-container">
+            <img id="neko" src="assets/awake.png" alt="Miku">
+        </div>
+        
+        <div class="hero-section">
+            <h1>Miku on the Web</h1>
+            <p>Experience a delightful companion that lives in your browser. Seamlessly following your journey, one cursor movement at a time.</p>
+            <!-- <div class="actions">
+                <button class="btn-primary" onclick="focusMiku()">Interact Now</button>
+            </div> -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <span>© 2026 Miku Companion</span>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/ajb-abin-jacob/" target="_blank">LinkedIn</a>
+                <!-- <a href="#">Privacy</a>
+                <a href="#">Terms</a> -->
+            </div>
+        </div>
+    </footer>
 
     <audio id="awake-sound" src="assets/awake.wav"></audio>
     <audio id="idle1-sound" src="assets/idle1.wav"></audio>
@@ -23,15 +48,6 @@
     <audio id="idle3-sound" src="assets/idle3.wav"></audio>
     <audio id="sleep-sound" src="assets/sleep.wav"></audio>
 
-
-    <div class="social-links">
-        <h3>Connect with me</h3>
-
-        <!-- <a href="https://instagram.com/yourusername" target="_blank">Instagram</a> -->
-        <a href="https://www.linkedin.com/in/ajb-abin-jacob/" target="_blank">LinkedIn</a>
-    </div>
-    </div>
     <script src="script.js"></script>
 </body>
-
 </html>
